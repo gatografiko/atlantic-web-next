@@ -161,6 +161,66 @@ a:hover { color: var(--gold); }
   min-height: calc(100vh - 64px);
 }
 
+.section-block {
+  margin-top: 28px;
+}
+
+.apartment-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.apartment-card {
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 12px;
+}
+
+.apartment-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(11, 20, 36, 0.6);
+}
+
+.apartment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.action-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.action-sheet {
+  display: grid;
+  gap: 14px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  border: 1px solid rgba(11, 20, 36, 0.1);
+}
+
+.action-title {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(11, 20, 36, 0.7);
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .site-footer {
   margin-top: 48px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -195,4 +255,5 @@ a:hover { color: var(--gold); }
   .nav { display: flex; }
   .header-cta { margin-left: 0; }
   .header-inner { justify-content: space-between; }
+  .apartment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
