@@ -3,12 +3,12 @@ import { ApartmentCard } from "@/components/ApartmentCard";
 import { getApartmentsByCategory } from "@/lib/apartments";
 import { withLocalePath } from "@/lib/locale";
 
-export default function LujoPage({
+export default async function LujoPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
   const apartments = getApartmentsByCategory("luxury");
   const rentApartments = apartments.filter((apartment) => apartment.operation === "rent");
   const saleApartments = apartments.filter((apartment) => apartment.operation === "sale");

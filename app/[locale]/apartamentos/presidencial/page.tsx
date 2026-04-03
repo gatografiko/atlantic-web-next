@@ -3,12 +3,12 @@ import { ApartmentCard } from "@/components/ApartmentCard";
 import { getApartmentsByCategory } from "@/lib/apartments";
 import { withLocalePath } from "@/lib/locale";
 
-export default function PresidencialPage({
+export default async function PresidencialPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
   const apartments = getApartmentsByCategory("presidential");
   const rentApartments = apartments.filter((apartment) => apartment.operation === "rent");
   const saleApartments = apartments.filter((apartment) => apartment.operation === "sale");

@@ -3,12 +3,12 @@ import { OperationActions } from "@/components/OperationActions";
 import { getApartmentBySlug } from "@/lib/apartments";
 import { withLocalePath } from "@/lib/locale";
 
-export default function ApartmentDetailPage({
+export default async function ApartmentDetailPage({
   params,
 }: {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale, slug } = params;
+  const { locale, slug } = await params;
   const apartment = getApartmentBySlug(slug);
   const title = apartment?.title ?? `Apartamento: ${slug}`;
   const summary =

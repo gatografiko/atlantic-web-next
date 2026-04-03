@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { withLocalePath } from "@/lib/locale";
 
-export default function AmenitiesPage({
+export default async function AmenitiesPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   return (
     <main className="container" style={{ padding: "32px 0" }}>
