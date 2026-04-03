@@ -1,14 +1,12 @@
 import Link from "next/link";
 import type { Apartment } from "@/lib/apartments";
-import { withLocalePath } from "@/lib/locale";
 import { OperationActions } from "./OperationActions";
 
 type ApartmentCardProps = {
   apartment: Apartment;
-  locale: string;
 };
 
-export function ApartmentCard({ apartment, locale }: ApartmentCardProps) {
+export function ApartmentCard({ apartment }: ApartmentCardProps) {
   return (
     <article className="apartment-card">
       <div className="apartment-meta">
@@ -20,7 +18,7 @@ export function ApartmentCard({ apartment, locale }: ApartmentCardProps) {
       <div className="apartment-actions">
         <Link
           className="btn"
-          href={withLocalePath(locale, `/apartamentos/${apartment.slug}`)}
+          href={`/apartamentos/${apartment.slug}`}
         >
           Ver detalle
         </Link>

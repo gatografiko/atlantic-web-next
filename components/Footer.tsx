@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, withLocalePath } from "@/lib/locale";
 
 type NavItem = { path: string; label: string };
 
@@ -16,8 +14,6 @@ const NAV_ITEMS: NavItem[] = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const pathname = usePathname();
-  const locale = getLocaleFromPathname(pathname);
 
   return (
     <footer className="site-footer" role="contentinfo">
@@ -33,7 +29,7 @@ export function Footer() {
           <div className="footer-title">Enlaces</div>
           <div className="footer-links">
             {NAV_ITEMS.map((item) => (
-              <Link key={item.path} href={withLocalePath(locale, item.path)}>
+              <Link key={item.path} href={item.path}>
                 {item.label}
               </Link>
             ))}
