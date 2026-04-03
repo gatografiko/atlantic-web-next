@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server";
 const SUPPORTED_LOCALES = ["es", "en", "it"];
 const DEFAULT_LOCALE = "es";
 
-export default function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const pathnameHasLocale = SUPPORTED_LOCALES.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -16,5 +16,5 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|favicon.ico|.*\\..*).*)"],
+  matcher: ["/((?!_next|api|favicon.ico|legal|.*\\..*).*)"],
 };
